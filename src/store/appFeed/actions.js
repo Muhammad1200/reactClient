@@ -2,6 +2,15 @@ import { apiUrl } from '../../config/constants'
 import axios from 'axios'
 import { setMessage } from '../appState/actions'
 
+
+export function setLatLng(lat,lng) {
+	return {
+		type: 'SETLATLNG',
+		lat: lat,
+		lng : lng,
+	}
+}
+
 export function startLoading(data) {
 	return {
 		type: 'LOADING',
@@ -270,6 +279,14 @@ export function addLead(
 		const state = getState()
 		const token = state.user.token
 		const userId = state.user.id
+
+		console.log(company_name,
+			associated_company_name,
+			company_phone,
+			company_address,
+			contact_person,
+			supplier,
+			contactId);
 
 		const res = await axios({
 			method: 'post',

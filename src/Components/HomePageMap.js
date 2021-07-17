@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import L from 'leaflet'
+import { connect } from 'react-redux';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet'
 import { Typography, Button } from '@material-ui/core'
 
-export default function HomePageMap(props) {
+const HomePageMap = (props) => {
 	const [activeLead, setActiveLead] = useState(null)
 	const leads = props.leads
 	const history = useHistory()
@@ -52,8 +53,12 @@ export default function HomePageMap(props) {
 		history.push(`/leads/${activeLead.id}`)
 	}
 
+	useEffect(()=>{
+		console.log(leads);
+	},[leads]);
+
 	return (
-		<Map center={[52.370216, 4.895168]} zoom={14}>
+		<Map center={[props.lat, props.lng]} zoom={14}>
 			<TileLayer
 				url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> 
@@ -87,3 +92,12 @@ export default function HomePageMap(props) {
 		</Map>
 	)
 }
+
+const mapStatetoProps = (state) =>{
+	return {
+		lat : state.appFeed.lat,
+		lng : state.appFeed.lng,
+	}
+}
+
+export default connect(mapStatetoProps)(HomePageMap);

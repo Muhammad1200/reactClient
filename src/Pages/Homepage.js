@@ -26,7 +26,7 @@ export default function Homepage() {
 	return (
 		<>
 			<Box mt={12} mx={25} height='450px'>
-				<HomePageMap leads={leads} />
+				<HomePageMap leads={leads || []} />
 			</Box>
 			<Box mx={25}>
 				<LeadsTable leads={leads} />

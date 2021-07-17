@@ -6,12 +6,16 @@ const initialState = {
 	actions: [],
 	reports: [],
 	users: [],
+	lat : 52.370216,
+	lng : 4.895168,
 }
 
 export default (state = initialState, action) => {
 	switch (action.type) {
 		case 'LOADING':
 			return { ...state, loading: action.payload }
+		case 'SETLATLNG':
+			return { ...state, lat: action.lat , lng: action.lng  }
 		case 'STORE_LEADS':
 			return { ...state, leads: [...action.payload], loading: false }
 		case 'STORE_UPDATED_LEAD':

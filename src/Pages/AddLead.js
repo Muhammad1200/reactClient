@@ -20,6 +20,7 @@ import { addLead, fetchContacts } from '../store/appFeed/actions'
 import SnackBar from '../Components/Navigation/SnackBar'
 import WorkIcon from '@material-ui/icons/Work'
 import { makeStyles } from '@material-ui/core/styles'
+import AutoComplete from 'react-google-autocomplete';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -61,6 +62,7 @@ export default function AddLeadMUI() {
 	const contacts = useSelector(selectContacts)
     const addedLead = useSelector(selectLeadByName(company_name))
     const [submitted, set_submitted] = useState(false)
+	const [requiredStyle , SetRequiredStyle] = useState('');
 
 	if (!token) {
 		history.push('/')
@@ -73,7 +75,12 @@ export default function AddLeadMUI() {
 	}, [])
 
 	const submitLeadForm = (event) => {
-		event.preventDefault()
+		event.preventDefault();
+		console.log(company_address);
+		// if(company_address !== ''){
+		// 	requiredStyle = 'border border-danger';
+		// 	return false;
+		// }
 		if (!toggle_state.addContact) {
 			dispatch(
 				addLead(
@@ -180,7 +187,7 @@ export default function AddLeadMUI() {
 							name='contact_person'
 							autoFocus
 						/>
-						<TextField
+						{/* <TextField
 							onChange={(event) => set_company_address(event.target.value)}
 							value={company_address}
 							variant='outlined'
@@ -191,7 +198,16 @@ export default function AddLeadMUI() {
 							label='Voeg address toe'
 							name='company_address'
 							autoFocus
+						/> */}
+{/* AIzaSyCA3su3JUqsUW7RfvYjC0O-svYz2oodnkY */}
+						<AutoComplete
+						apiKey='AIzaSyC-vhYW0mBumBDo_ktcCu6PsUzqKdkIOxY'
+						className={`form-control ${requiredStyle} py-4`}
+						onPlaceSelected={(place) => set_company_address(place.formatted_address)}
 						/>
+
+
+
 						<TextField
 							onChange={(event) => set_supplier(event.target.value)}
 							value={supplier}

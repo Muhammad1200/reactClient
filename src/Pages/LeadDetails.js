@@ -1,7 +1,7 @@
 import React, { useEffect }from 'react'
 import { useParams, useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
-import { fetchLeads, fetchUsers } from '../store/appFeed/actions'
+import { fetchLeads, fetchUsers , setLatLng } from '../store/appFeed/actions'
 import { selectLeadById, selectUsers } from '../store/appFeed/selectors'
 import { selectToken } from "../store/user/selectors";
 import { Box, Grid, Typography } from'@material-ui/core'
@@ -35,6 +35,15 @@ export default function LeadDetails() {
         } else if (!users.length)
         dispatch(fetchUsers)
     }, [dispatch, lead])
+
+    useEffect(()=>{
+        console.log(lead);
+
+        if(lead) {
+        console.log(lead.lat);
+            dispatch(setLatLng(lead.lat,lead.lng))
+        }
+    },[lead])
 
     if(!lead || !users.length) {
         return <></>
