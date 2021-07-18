@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Typography, Link } from '@material-ui/core'
 import CommentIcon from '@material-ui/icons/Comment'
@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme) => ({
 export default function LeadAutoComplete(props) {
 	const classes = useStyles()
 	const report = props.report
+	const note = props.report.note;
+
 
 	return (
 		<Link href={`/leads/${report.lead.id}`}>
@@ -26,7 +28,7 @@ export default function LeadAutoComplete(props) {
 						{report.user.name}
 					</Typography>
 					<Typography variant='body2' color='textSecondary'>
-						{`${report.note.substring(0, 25)}...`}
+						{`${note.substr(0, 25)}...`}
 					</Typography>
 				</Grid>
 			</Grid>

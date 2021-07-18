@@ -2,7 +2,7 @@ import React, { useEffect }from 'react'
 import { useParams, useHistory} from 'react-router-dom'
 import { useSelector, useDispatch } from "react-redux";
 import { fetchLeads, fetchUsers , setLatLng } from '../store/appFeed/actions'
-import { selectLeadById, selectUsers } from '../store/appFeed/selectors'
+import { selectLeadById, selectUsers , selectLeads } from '../store/appFeed/selectors'
 import { selectToken } from "../store/user/selectors";
 import { Box, Grid, Typography } from'@material-ui/core'
 import LeadCard from '../Components/LeadCard'
@@ -19,6 +19,7 @@ export default function LeadDetails() {
     const dispatch = useDispatch()
     const params = useParams()   
     const leadId = parseInt(params.id)
+    const allleads = useSelector(selectLeads)
     const lead = useSelector(selectLeadById(leadId))
     const users = useSelector(selectUsers)
     const contact = {...lead}.contact
@@ -38,12 +39,14 @@ export default function LeadDetails() {
 
     useEffect(()=>{
         console.log(lead);
-
         if(lead) {
-        console.log(lead.lat);
+            console.log(lead.lat);
             dispatch(setLatLng(lead.lat,lead.lng))
         }
-    },[lead])
+        if(allleads){
+            console.log("allLeads",allleads);
+        }
+    },[lead , allleads])
 
     if(!lead || !users.length) {
         return <></>
@@ -109,6 +112,7 @@ export default function LeadDetails() {
                         </Box>
                         <Box ml={3} mt={1} mr={3} height={"450px"}>
                                 <LeafletMap id={lead.id}
+                                            allLeads={allleads || []}
                                             lat={lead.lat}
                                             lng={lead.lng}/>
                         </Box>

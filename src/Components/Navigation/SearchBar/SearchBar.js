@@ -51,15 +51,20 @@ export default function SearchBar(props) {
 		dispatch(fetchContacts)
 	}, [])
 
+	useEffect(()=>{
+		// console.log("Option",options);
+	},[options])
+
 	const optionLabelSwitch = (option) => {
+
 		if (option.hasOwnProperty('company_name')) {
-			return option.company_name
+			return option.company_name || ''
 		} else if (option.hasOwnProperty('action')) {
-			return option.action
+			return option.action || ''
 		} else if (option.hasOwnProperty('name')) {
-			return option.name
+			return option.name || ''
 		} else {
-			return option.note
+			return option.note || ''
 		}
 	}
 
@@ -71,6 +76,7 @@ export default function SearchBar(props) {
 		} else if (option.hasOwnProperty('name')) {
 			return <ContactAutoComplete contact={option} />
 		} else {
+			// console.log(option.note);
 			return <ReportAutoComplete report={option} />
 		}
 	}
@@ -81,6 +87,7 @@ export default function SearchBar(props) {
 				id='search-bar'
 				inputValue={searchInputValue}
 				onInputChange={(event, newInputValue) => {
+					console.log(newInputValue);
 					setSearchInputValue(newInputValue)
 				}}
 				getOptionLabel={optionLabelSwitch}
