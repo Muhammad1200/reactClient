@@ -57,7 +57,7 @@ export default function LeadDetails() {
                 container
                 direction="row"
                 justify="flex-start">
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={4}>
                     <Grid 
                         container
                         direction="column"
@@ -105,7 +105,7 @@ export default function LeadDetails() {
                         </Grid>                               
                     </Grid>
                 </Grid>
-                <Grid item xs ={8}>
+                <Grid item xs={12} sm={8}>
                     <Box>
                         <Box ml={3} mt={2}>
                             <Typography variant="h5">Kaart</Typography>
@@ -124,7 +124,7 @@ export default function LeadDetails() {
                 container
                 direction="row"
                 justify="flex-start">
-                    <Grid item xs={3}>
+                    <Grid item xs={12} sm={3}>
                         <Box m={3}>
                             <Box mt={3}>
                                 <Typography variant="h5">Notities</Typography>
@@ -134,7 +134,7 @@ export default function LeadDetails() {
                             </Box>
                         </Box>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} sm={6}>
                         <Grid
                             container
                             direction="column"
@@ -164,7 +164,7 @@ export default function LeadDetails() {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} sm={3}>
                         <Box m={3}> 
                             <Box ml={3} mt={3}>
                                 <Typography variant="h5">Acties</Typography>

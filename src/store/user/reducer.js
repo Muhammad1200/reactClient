@@ -2,7 +2,7 @@ import { LOG_OUT, LOGIN_SUCCESS, TOKEN_STILL_VALID } from "./actions";
 
 const initialState = {
   // token: localStorage.getItem("token"),
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTYyNjU5MjMxOSwiZXhwIjoxNjI2NTk5NTE5fQ.OnKETReVk43C25NawCihF4Q81-HxXGv8ccKEJ8pdEgY',
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTYyNzgwMDUxOCwiZXhwIjoxNjI3ODA3NzE4fQ.BDwy2x3GK_R6lQk0fz39fCwX4XOti3xDrT_geFXbKe8',
   name :"Merijn Kok",
   email :"Merijn@risottini.com",
   id :2,

@@ -98,6 +98,7 @@ export default function SearchBar(props) {
 						className={classes.searchBox}
 						variant='outlined'
 						label='Zoek ...'
+						fullWidth
 					/>
 				)}
 				renderOption={renderOptionSwitch}

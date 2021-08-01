@@ -28,7 +28,7 @@ export default function LeadAutoComplete(props) {
 						{report.user.name}
 					</Typography>
 					<Typography variant='body2' color='textSecondary'>
-						{`${note.substr(0, 25)}...`}
+						{`${note}...`}
 					</Typography>
 				</Grid>
 			</Grid>

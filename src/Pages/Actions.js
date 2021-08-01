@@ -31,10 +31,10 @@ export default function Actions() {
 		return (
 			<Box mt={12} mx={3}>
 				<Grid container direction='row' justify='flex-start'>
-					<Grid item xs={9}>
+					<Grid item xs={12} sm={9}>
 						<ActionTable actions={actions} />
 					</Grid>
-					<Grid item xs={3}>
+					<Grid item xs={12} sm={3} mt={5}>
 						<PlanActionForm2 leads={leads} />
 					</Grid>
 				</Grid>

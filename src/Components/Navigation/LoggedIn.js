@@ -11,13 +11,15 @@ export default function LoggedIn() {
   
   return (
     <>
+      <div className="d-flex flex-row justify-content-center align-items-center">
       <Avatar><PersonOutlineRoundedIcon /></Avatar>      
-        <Box textAlign="center" m={3}>
+        <Box textAlign="center" className="ml-4">
           <Typography>{user.name}</Typography>
         </Box>
-      <Box textAlign="center" m={2}>
+      </div>
+      {/* <Box textAlign="center" m={2}>
         <Button variant="contained" onClick={() => dispatch(logOut())}>Logout</Button>
-      </Box>
+      </Box> */}
     </>
   );
 }

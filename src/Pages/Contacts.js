@@ -24,10 +24,10 @@ export default function Contacts() {
 
 	return (
 		<>
-			<Box mt={12} mx={3}>
-				<Grid container direction='row' justify='flex-start'>
-					<Grid item xs={7}><ContactBook contacts={contacts}/></Grid>
-					<Grid item xs={5}><AddContactForm/></Grid>
+			<Box mt={12} mx={3} className="mt-5">
+				<Grid container direction='row' justify='flex-start' className="mt-5">
+					<Grid item xs={12} className="mt-5" sm={7}><ContactBook contacts={contacts}/></Grid>
+					<Grid item xs={12} className="mt-5" sm={5}><AddContactForm/></Grid>
 				</Grid>
 			</Box>
 		</>

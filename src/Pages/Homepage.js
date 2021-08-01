@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Box } from '@material-ui/core'
 import HomePageMap from '../Components/HomePageMap'
 import LeadsTable from '../Components/LeadsTable'
+import './Style.css';
 
 export default function Homepage() {
 	const dispatch = useDispatch()
@@ -25,12 +26,14 @@ export default function Homepage() {
 
 	return (
 		<>
-			<Box mt={12} mx={25} height='450px'>
-				<HomePageMap leads={leads || []} />
-			</Box>
-			<Box mx={25}>
-				<LeadsTable leads={leads} />
-			</Box>
+			<div className="row mt-5" >
+				<Box className=" HomePageMargin col-md-8 col-xs-8 mt-5" height='450px'>
+					<HomePageMap leads={leads || []} />
+				</Box>
+				<Box className="col-md-8 col-xs-8 HomePageMargin">
+					<LeadsTable leads={leads} />
+				</Box>
+			</div>
 		</>
 	)
 }
